@@ -21,7 +21,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    print(f'{bot.user} just sent a message.')
+    print(f"Message posted in specified channel.")
     #if message.author.bot:
     #    return
 
@@ -34,6 +34,6 @@ async def on_message(message):
     role = message.guild.get_role(ROLE_ID)
     if role:
         await message.channel.send(f'Aha {role.mention}, Wargaming vydaly nějakou novinku, připravte si kreditku! :grin:')
-
+        print(f'{bot.user} just sent a message.')
 keep_alive()
 bot.run(TOKEN)
