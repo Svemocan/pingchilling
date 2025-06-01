@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+from webserver import keep_alive
 
 TOKEN = os.environ['TOKEN']
 ROLE_ID = int(os.environ['ROLE_ID'])
@@ -34,4 +35,5 @@ async def on_message(message):
     if role:
         await message.channel.send(f'Aha {role.mention}, Wargaming vydaly nějakou novinku, připravte si kreditku! :grin:')
 
+keep_alive()
 bot.run(TOKEN)
