@@ -25,6 +25,10 @@ async def on_message(message):
     print(f"Message posted in specified channel.")
     #if message.author.bot:
     #    return
+    user = message.author
+    if user.id == TEST_ID:
+        await message.channel.send(f'{user.mention}test :3')
+        print('Test :3')
 
     if CHANNEL_ID and message.channel.id != CHANNEL_ID:
         return
@@ -37,10 +41,7 @@ async def on_message(message):
         await message.channel.send(f'Aha {role.mention}, Wargaming vydaly nějakou novinku, připravte si kreditku! :grin:')
         print(f'{bot.user} just sent a message.')
 
-    user = message.author
-    if user.id == TEST_ID:
-        await message.channel.send(f'{user.mention}test :3')
-        print('Test :3')
+
 
 keep_alive()
 bot.run(TOKEN)
