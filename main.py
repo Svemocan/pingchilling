@@ -37,7 +37,9 @@ async def on_message(message):
         await message.channel.send(f'Aha {role.mention}, Wargaming vydaly nějakou novinku, připravte si kreditku! :grin:')
         print(f'{bot.user} just sent a message.')
 
-    if message.author.id == TEST_ID:
+    user = message.author
+    if user.id == TEST_ID:
+        await message.channel.send(f'{user.mention}test :3')
         print('Test :3')
 
 keep_alive()
