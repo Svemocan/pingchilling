@@ -14,19 +14,22 @@ intents.message_content = True
 intents.guilds = True
 intents.messages = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="~", intents=intents)
+
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
 
+
 @bot.event
 async def on_message(message):
-    print(f"Message posted in specified channel.")
-    #if message.author.bot:
-    #    return
+
     user = message.author
-    if user.id == TEST_ID:
+    if user.bot:
+        return
+
+    if TEST_ID and message.channel.id == CHANNEL_ID and user.id == TEST_ID:
         await message.channel.send(f'{user.mention}test :3')
         print('Test :3')
 
@@ -40,7 +43,6 @@ async def on_message(message):
     if role:
         await message.channel.send(f'Aha {role.mention}, Wargaming vydaly nějakou novinku, připravte si kreditku! :grin:')
         print(f'{bot.user} just sent a message.')
-
 
 
 keep_alive()
