@@ -26,12 +26,13 @@ async def on_ready():
 async def on_message(message):
 
     user = message.author
-    if user.bot:
-        return
+    #if user.bot:
+    #    return
 
     if TEST_ID and message.channel.id == CHANNEL_ID and user.id == TEST_ID:
         await message.channel.send(f'{user.mention}test :3')
         print('Test :3')
+        return
 
     if CHANNEL_ID and message.channel.id != CHANNEL_ID:
         return
