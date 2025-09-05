@@ -35,7 +35,6 @@ choices = [
     "{role.mention}, je to tu zas. Novinky, patch, update… hoďte si kostkou. :game_die:",
     "WG zmáčklo tlačítko ‚Publish‘. {role.mention}, tak se na to podívejme. <:pepesearch:1367089084463583354>"
     "{role.mention}, update detekován! Beep Boop :robot:",
-
     # Satirické
     "{role.mention}, WG vydalo něco nového. Buď bugfix, nebo další důvod k smíchu <:kekw:1231355571400085634>",
     "Pozor {role.mention}, další patch. Tipuju, že zase rozbije něco jiného <:lulw:1243213559152775249>",
@@ -63,11 +62,11 @@ async def on_message(message):
     #    return
 
     if TEST_ID and user.id == TEST_ID:
-        if message.content.startswith("~pingchillingtest"):
-            message.channel.send(f'{user.mention} hard at work <:boykisser:1243213206562799657>')
+        if message.content.startswith("~pct"):
+            #message.channel.send(f'{user.mention} hard at work <:boykisser:1243213206562799657>')
             chosen = random.choice(choices)
-            message.channel.send(chosen)
-            print('Test :3')
+            await message.channel.send(chosen)
+            #print('Test :3')
 
     if CHANNEL_ID and message.channel.id != CHANNEL_ID:
         return
