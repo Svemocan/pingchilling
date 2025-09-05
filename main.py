@@ -60,11 +60,12 @@ async def on_message(message):
     #if user.bot:
     #    return
 
-    if TEST_ID and message.channel.id == CHANNEL_ID and user.id == TEST_ID and message == 'test':
-        await message.channel.send(f'{user.mention}test :3')
-
-        print('Test :3')
-        return
+    if TEST_ID and message.channel.id == CHANNEL_ID and user.id == TEST_ID:
+        if message.content.startswith("~test"):
+            await message.channel.send(f'{user.mention} test :boykisser:')
+            message = random.choices(choices)
+            await message.channel.send(f"{message}")
+            print('Test :3')
 
     if CHANNEL_ID and message.channel.id != CHANNEL_ID:
         return
