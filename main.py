@@ -65,7 +65,7 @@ async def on_message(message):
     if TEST_ID and user.id == TEST_ID:
         if message.content.startswith("~pingchillingtest"):
             await message.channel.send(f'{user.mention} test <:boykisser:1243213206562799657>')
-            message = random.choices(choices)
+            message = random.choice(choices)
             await message.channel.send(f"{message}")
             print('Test :3')
 
